@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors'); 
+const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 require('dotenv').config()
@@ -7,10 +7,15 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // miidleware  written here
-app.use(cors());
+const corsConfig = {
+  origin: '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+  }
+  app.use(cors(corsConfig))
 app.use(express.json());
-  
- 
+
+
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.5ynzghe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -26,59 +31,79 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const craftifyCollection = client.db('craftifycreationsDB').collection('craftify');
+    const categoryCollection = client.db('craftifycreationsDB').collection('category');
+
 
     app.get('/craftify', async (req, res) => {
       const cursor = craftifyCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     })
+//my item 
+    app.get('/craftify/:email', async (req, res) => {
+      console.log(req.params.email);
+      const result = await craftifyCollection.find({ email: req.params.email }).toArray();
+      res.send(result);
+    })
 
-    // app.get('/coffee/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: new ObjectId(id) }
-    //   const result = await coffeeCollection.findOne(query);
-    //   res.send(result);
 
-    // })
+//update
+    app.get('/singleCard/:id', async (req, res) => {
+       
+      console.log(req.params.id);
 
-    // app.delete('/coffee/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: new ObjectId(id) };
-    //   const result = await coffeeCollection.deleteOne(query);
-    //   res.send(result);
-    // })
+      const result = await craftifyCollection.findOne({_id: new ObjectId(req.params.id)});
+      res.send(result);
 
-    // app.put('/coffee/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id) }
-    //   const options = { upsert: true };
-    //   const updatedCoffee = req.body;
-    //   const coffee = {
-    //     $set: {
-    //       name: updatedCoffee.name,
-    //       quantity: updatedCoffee.quantity,
-    //       supplier: updatedCoffee.supplier,
-    //       taste: updatedCoffee.taste,
-    //       category: updatedCoffee.category,
-    //       details: updatedCoffee.details,
-    //       photo: updatedCoffee.photo
-    //     }
-    //   }
-    //   const result = await coffeeCollection.updateOne(filter, coffee, options);
-    //   res.send(result);
-    // })
+    })
 
-    //user related api
+    
+    app.put('/updateCard/:id', async (req, res) => {
 
-     
+      console.log(req.params.id)
+      const query= {_id : new ObjectId( req.params.id)};
+
+      const id = req.params.id;
+      // const filter = { _id: new ObjectId(id) }
+      const options = { upsert: true };
+      const updatedCraftify = req.body;
+      const craftify = {
+        $set: {
+          item_name: updatedCraftify.item_name,
+          subcategory_Name: updatedCraftify.subcategory_Name,
+          description: updatedCraftify.description,
+          price: updatedCraftify.price,
+          rating: updatedCraftify.rating,
+          customization: updatedCraftify.customization,
+          photo: updatedCraftify.photo,
+          processing_time: updatedCraftify.processing_time,
+          stockStatus: updatedCraftify.stockStatus
+         
+        }
+      }
+      const result = await craftifyCollection.updateOne(query, craftify, options);
+      res.send(result);
+    })
+
+    // delete
+    app.delete('/updateCard/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await craftifyCollection.deleteOne(query);
+      res.send(result);
+    })
+
+    //first post here
+
+
 
     app.post('/craftify', async (req, res) => {
-        const newcraftify = req.body;
-        console.log(newcraftify);
-        const result = await craftifyCollection.insertOne(newcraftify);
-        res.send(result);
-  
-      })
+      const newcraftify = req.body;
+      console.log(newcraftify);
+      const result = await craftifyCollection.insertOne(newcraftify);
+      res.send(result);
+
+    })
 
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
