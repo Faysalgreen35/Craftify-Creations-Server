@@ -39,7 +39,7 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     })
-//my item 
+//my email to search 
     app.get('/craftify/:email', async (req, res) => {
       console.log(req.params.email);
       const result = await craftifyCollection.find({ email: req.params.email }).toArray();
@@ -57,7 +57,7 @@ async function run() {
 
     })
 
-    
+    //update
     app.put('/updateCard/:id', async (req, res) => {
 
       console.log(req.params.id)
@@ -94,8 +94,7 @@ async function run() {
     })
 
     //first post here
-
-
+   
 
     app.post('/craftify', async (req, res) => {
       const newcraftify = req.body;
@@ -105,6 +104,22 @@ async function run() {
 
     })
 
+    //second  api for category
+    
+    app.get('/category', async (req, res) => {
+      const cursor = categoryCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+    
+    app.post('/category', async (req, res) => {
+      const newcraftify = req.body;
+      console.log(newcraftify);
+      const result = await categoryCollection.insertOne(newcraftify);
+      res.send(result);
+
+    })
+ 
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
