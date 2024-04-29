@@ -1,10 +1,10 @@
 # Craftify Creations Server site
 
 ## Live Site URL
-[Visit Craftify Creations Server site](https://coffee-store-2a449.web.app///)
+[Visit Craftify Creations Server site](https://craftify-creations-server.vercel.app)
 
 ## Live Site URL
-[Visit Craftify Creations Client site](https://coffee-store-2a449.web.app///)
+[Visit Craftify Creations Client site](https://craftify-creations.web.app/)
 
 ## Description
 A coffee store is a haven for caffeine enthusiasts and social gatherings alike. It's a place where the aroma of freshly brewed coffee beans mingles with the chatter of patrons, creating an ambiance that is both invigorating and comforting.
