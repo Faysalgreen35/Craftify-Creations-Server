@@ -5,7 +5,7 @@
 Welcome to Craftify Creations, your destination for exploring the diverse world of painting and drawing! Visit our website to unleash your creativity and discover a wide range of artistic expressions. 
 
 
-# Craftify Creations Client site
+# Craftify Creations  Backend and Fronted Given Below:  
 
 **Live Site URL:** [Craftify Creations Server](https://craftify-creations-server.vercel.app)
 **Live Site URL:** [Craftify Creations Client](https://craftify-creations.web.app/)
