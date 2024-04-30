@@ -8,6 +8,7 @@ Welcome to Craftify Creations, your destination for exploring the diverse world 
 # Craftify Creations  Backend and Fronted Given Below:  
 
 **Live Site URL:** [Craftify Creations Server](https://craftify-creations-server.vercel.app)
+and
 **Live Site URL:** [Craftify Creations Client](https://craftify-creations.web.app/)
  
 
@@ -66,7 +67,7 @@ Once the development server is running, visit `http://localhost:5173` in your we
 ## Challenges Task
 For this project, I have implemented the following npm packages to address specific challenges:
 - **Swiper Slider**: I used the Swiper package to create interactive sliders for showcasing property images and other visual content.
-- **AOS Package**: I used the AOS package to add animations to my Blog, enhancing the user experience and visual appeal.
+- **AOS Package**: I used the AOS package to add animations to my Home, enhancing the user experience and visual appeal.
 - **React Hook Form**: I implemented React Hook Form to manage and validate complex forms efficiently, providing a seamless experience for users when submitting inquiries or contact forms.
 
 - **React-simple-typewriter**: Enhance your web development skills by participating in our React-simple-typewriter challenge. Create captivating typewriter animations to add an extra flair to your projects.
