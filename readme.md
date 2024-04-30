@@ -7,10 +7,9 @@ Welcome to Craftify Creations, your destination for exploring the diverse world 
 
 # Craftify Creations Client site
 
+**Live Site URL:** [Craftify Creations Server](https://craftify-creations-server.vercel.app)
 **Live Site URL:** [Craftify Creations Client](https://craftify-creations.web.app/)
-
-## Live Site URL For Client
-[Visit Craftify Creations Server site](https://craftify-creations-server.vercel.app)
+ 
 
 
 
