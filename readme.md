@@ -8,8 +8,8 @@ Welcome to Craftify Creations, your destination for exploring the diverse world 
 # Craftify Creations  Backend and Fronted Given Below:  
 
 **Live Site URL:** [Craftify Creations Server](https://craftify-creations-server.vercel.app)
-and
-**Live Site URL:** [Craftify Creations Client](https://craftify-creations.web.app/)
+ 
+-**Live Site URL:** [Craftify Creations Client](https://craftify-creations.web.app/)
  
 
 
@@ -34,18 +34,20 @@ Explore the endless possibilities of painting and drawing with Craftify Creation
 
 ## Features:
 
-- **Landscape Painting**: Immerse yourself in the beauty of nature with our stunning mountain view canvases and forest-based landscape paintings.
+- **A platform for exploring painting and drawing, allowing users to unleash creativity through various techniques.
   
-- **Portrait Drawing**: Bring your loved ones to life with our exquisite pencil sketch portraits, ink outline portraits, and acrylic portrait canvases.
+- **Enabled custom design creation and showcased user artworks.
   
-- **Watercolour Painting**: Explore the delicate art of watercolor with our floral watercolor creations and lifelike animal watercolor portraits.
+- **Implemented Firebase Authentication for user login via Google, Facebook, and GitHub.
   
-- **Oil Painting**: Experience the richness of oil paints through our realistic oil portraits and captivating abstract oil paintings.
-  
-- **Charcoal Sketching**: Dive into the world of monochrome with our figure charcoal sketches and intricate architectural charcoal drawings.
-  
-- **Cartoon Drawing**: Let your imagination run wild with our playful comic strip drawings and dynamic superhero cartoon designs.
+- **Integrated MongoDB for storing user data and artworks.
 
+## Technologies Used
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+- Firebase
 
 ## Getting Started
 To visit our store and experience the wonderful world of coffee, simply drop by our location at [insert address]. We look forward to welcoming you!
@@ -98,5 +100,22 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Craftify Creations is not just a website; it's a platform for artists and art enthusiasts alike to connect, inspire, and create. Join us on this journey of artistic exploration and let your imagination soar!
 
+## How to Run Locally
+1. **Clone the repository:**
+    ```bash
+    git clone  https://github.com/Faysalgreen35/Craftify-Creations-Server
+    ```
+2. **Navigate to the project directory:**
+    ```bash
+    cd Craftify-Creations-Server
+    ```
+3. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4. **Run the application:**
+    ```bash
+    npm run dev
+    ```
 
 
